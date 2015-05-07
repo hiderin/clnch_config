@@ -103,23 +103,27 @@ def configure(window):
     #現在の状態を表わす関数
     def show_keyhac_mode():
         showstr = ""
-        if mainmode == 0:
+        global mainmode
+
+        #メインモードの表示
+        if mainmode == "0":
             showstr = u"Nomal Mode"
-        elif mainmode == 1:
+        elif mainmode == "1":
             showstr = u"VIM Mode"
-        elif mainmode == 2:
+        elif mainmode == "2":
             showstr = u"Insert Mode"
-        elif mainmode == 3:
+        elif mainmode == "3":
             showstr = u"Visual Mode"
-        elif mainmode == 4:
+        elif mainmode == "4":
             showstr = u"Command Mode"
-        elif mainmode == 5:
+        elif mainmode == "5":
             showstr = u"Search Mode"
         window.clock_format = showstr
 
     def command_set_mode(mode_num):
-        mainmode = mode_num
-        show_keyhac_mode
+        global mainmode
+        mainmode = mode_num[0]
+        show_keyhac_mode()
 
 
 
