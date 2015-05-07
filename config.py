@@ -62,64 +62,64 @@ def configure(window):
     # Vim_Flags
     # --------------------------------------------------------------------
 
-        # メインのモードフラグ
-        # 0:ノーマルモード (通常のキーボード)
-        # 1:VimMode (Vimのノーマルモード)
-        # 2:InsertMode (Vimの挿入モード)
-        # 3:VisualMode (Vimのビジュアルモード)
-        # 4:CommandMode (Vimのコマンドモード)
-        # 5:SearchMode (検索モード EnterでVimModeに戻る)
-        mainmode = 1
+    # メインのモードフラグ
+    # 0:ノーマルモード (通常のキーボード)
+    # 1:VimMode (Vimのノーマルモード)
+    # 2:InsertMode (Vimの挿入モード)
+    # 3:VisualMode (Vimのビジュアルモード)
+    # 4:CommandMode (Vimのコマンドモード)
+    # 5:SearchMode (検索モード EnterでVimModeに戻る)
+    mainmode = 1
 
-        # VimMode でのコマンド入力中を示すフラグ
-        flg_mtd = 0
+    # VimMode でのコマンド入力中を示すフラグ
+    flg_mtd = 0
 
-        # コマンドの実行回数
-        repeatN = 0
+    # コマンドの実行回数
+    repeatN = 0
 
-        # コマンドラインのコマンド
-        command_str =""
+    # コマンドラインのコマンド
+    command_str =""
 
-        # ビジュアルモードの状態を示すフラグ
-        # 1:行単位の選択
-        # 2:矩形単位の選択
-        flg_selmode = 0
+    # ビジュアルモードの状態を示すフラグ
+    # 1:行単位の選択
+    # 2:矩形単位の選択
+    flg_selmode = 0
 
-        # スクロールバインドのオンオフ
-        flg_scroll = 0
+    # スクロールバインドのオンオフ
+    flg_scroll = 0
 
-        # 日本語入力固定モード
-        flg_imemode =1
+    # 日本語入力固定モード
+    flg_imemode =1
 
-        # EXCELLなどで日本語入力を固定する
-        flg_fixinput=0
+    # EXCELLなどで日本語入力を固定する
+    flg_fixinput=0
 
-        # キーボードマクロの記録の状態を示すフラグ
-            # 0:マクロ OFF
-            # 1:マクロ記録中
-            # 2:マクロ実行中
-        flg_mcr = 0
+    # キーボードマクロの記録の状態を示すフラグ
+        # 0:マクロ OFF
+        # 1:マクロ記録中
+        # 2:マクロ実行中
+    flg_mcr = 0
 
-        #現在の状態を表わす関数
-        def show_keyhac_mode():
-            showstr = ""
-            if mainmode == 0:
-                showstr = u"Nomal Mode"
-            elif mainmode == 1:
-                showstr = u"VIM Mode"
-            elif mainmode == 2:
-                showstr = u"Insert Mode"
-            elif mainmode == 3:
-                showstr = u"Visual Mode"
-            elif mainmode == 4:
-                showstr = u"Command Mode"
-            elif mainmode == 5:
-                showstr = u"Search Mode"
-            window.clock_format = showstr
+    #現在の状態を表わす関数
+    def show_keyhac_mode():
+        showstr = ""
+        if mainmode == 0:
+            showstr = u"Nomal Mode"
+        elif mainmode == 1:
+            showstr = u"VIM Mode"
+        elif mainmode == 2:
+            showstr = u"Insert Mode"
+        elif mainmode == 3:
+            showstr = u"Visual Mode"
+        elif mainmode == 4:
+            showstr = u"Command Mode"
+        elif mainmode == 5:
+            showstr = u"Search Mode"
+        window.clock_format = showstr
 
-        def command_set_mode(mode_num):
-            mainmode = mode_num
-            show_keyhac_mode
+    def command_set_mode(mode_num):
+        mainmode = mode_num
+        show_keyhac_mode
 
 
 
