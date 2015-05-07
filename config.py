@@ -100,6 +100,29 @@ def configure(window):
             # 2:マクロ実行中
         flg_mcr = 0
 
+        #現在の状態を表わす関数
+        def show_keyhac_mode():
+            showstr = ""
+            if mainmode == 0:
+                showstr = u"Nomal Mode"
+            elif mainmode == 1:
+                showstr = u"VIM Mode"
+            elif mainmode == 2:
+                showstr = u"Insert Mode"
+            elif mainmode == 3:
+                showstr = u"Visual Mode"
+            elif mainmode == 4:
+                showstr = u"Command Mode"
+            elif mainmode == 5:
+                showstr = u"Search Mode"
+            window.clock_format = showstr
+
+        def command_set_mode(mode_num):
+            mainmode = mode_num
+            show_keyhac_mode
+
+
+
     # --------------------------------------------------------------------
     # 空欄コマンド
     #   コマンド名なしでEnterを押したときに実行されるコマンドです。
@@ -170,6 +193,7 @@ def configure(window):
 #        ( u"Vim",    command_vim),
 #        ( u"cmd",    window.command_ShellExecute( None, u"cmd.exe", u"%param%", u"" ) ),
         ( u"cmd",    command_cmd),
+        ( u"setmod",    command_set_mode),
         ( u"regedit",    window.command_ShellExecute( None, u"regedit.exe", u"", u"" ) ),
         ( u"Peggy",     window.command_ShellExecute( None, u"C:/ols/anchor/peggy/peggypro.exe", u"", u"" ) ),
         ( u"Becky",     window.command_ShellExecute( None, u"C:/ols/becky/B2.exe", u"", u"" ) ),
