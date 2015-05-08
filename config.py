@@ -8,6 +8,51 @@ from clnch import *
 # ・時計の表示機能を使用してkeyhacのモードを表示させる              [showmode]
 ################################################################################
 
+############################################################################
+# 非アクティブ時の時計を利用したmode表示
+############################################################################
+# --------------------------------------------------------------------
+# Vim_Flags
+# --------------------------------------------------------------------
+
+# メインのモードフラグ
+# 0:ノーマルモード (通常のキーボード)
+# 1:VimMode (Vimのノーマルモード)
+# 2:InsertMode (Vimの挿入モード)
+# 3:VisualMode (Vimのビジュアルモード)
+# 4:CommandMode (Vimのコマンドモード)
+# 5:SearchMode (検索モード EnterでVimModeに戻る)
+mainmode = "1"
+
+# VimMode でのコマンド入力中を示すフラグ
+flg_mtd = 0
+
+# コマンドの実行回数
+repeatN = 0
+
+# コマンドラインのコマンド
+command_str =""
+
+# ビジュアルモードの状態を示すフラグ
+# 1:行単位の選択
+# 2:矩形単位の選択
+flg_selmode = 0
+
+# スクロールバインドのオンオフ
+flg_scroll = 0
+
+# 日本語入力固定モード
+flg_imemode ="1"
+
+# EXCELLなどで日本語入力を固定する
+flg_fixinput=0
+
+# キーボードマクロの記録の状態を示すフラグ
+    # 0:マクロ OFF
+    # 1:マクロ記録中
+    # 2:マクロ実行中
+flg_mcr = 0
+
 # 設定処理
 def configure(window):
 
@@ -55,69 +100,32 @@ def configure(window):
         # 年月日(曜日) 時分秒 の全てを表示する
         window.clock_format = u"%Y/%m/%d(%a) %H:%M:%S"
 
-    ############################################################################
-    # 非アクティブ時の時計を利用したmode表示
-    ############################################################################
-    # --------------------------------------------------------------------
-    # Vim_Flags
-    # --------------------------------------------------------------------
-
-    # メインのモードフラグ
-    # 0:ノーマルモード (通常のキーボード)
-    # 1:VimMode (Vimのノーマルモード)
-    # 2:InsertMode (Vimの挿入モード)
-    # 3:VisualMode (Vimのビジュアルモード)
-    # 4:CommandMode (Vimのコマンドモード)
-    # 5:SearchMode (検索モード EnterでVimModeに戻る)
-    mainmode = 1
-
-    # VimMode でのコマンド入力中を示すフラグ
-    flg_mtd = 0
-
-    # コマンドの実行回数
-    repeatN = 0
-
-    # コマンドラインのコマンド
-    command_str =""
-
-    # ビジュアルモードの状態を示すフラグ
-    # 1:行単位の選択
-    # 2:矩形単位の選択
-    flg_selmode = 0
-
-    # スクロールバインドのオンオフ
-    flg_scroll = 0
-
-    # 日本語入力固定モード
-    flg_imemode =1
-
-    # EXCELLなどで日本語入力を固定する
-    flg_fixinput=0
-
-    # キーボードマクロの記録の状態を示すフラグ
-        # 0:マクロ OFF
-        # 1:マクロ記録中
-        # 2:マクロ実行中
-    flg_mcr = 0
 
     #現在の状態を表わす関数
     def show_keyhac_mode():
         showstr = ""
-        global mainmode
+        global mainmode, flg_imemode
 
         #メインモードの表示
         if mainmode == "0":
-            showstr = u"Nomal Mode"
+            showstr = u"Nomal Mode  "
         elif mainmode == "1":
-            showstr = u"VIM Mode"
+            showstr = u"VIM Mode    "
         elif mainmode == "2":
-            showstr = u"Insert Mode"
+            showstr = u"Insert Mode "
         elif mainmode == "3":
-            showstr = u"Visual Mode"
+            showstr = u"Visual Mode "
         elif mainmode == "4":
             showstr = u"Command Mode"
         elif mainmode == "5":
-            showstr = u"Search Mode"
+            showstr = u"Search Mode "
+
+        #日本語入力の表示
+        if flg_imemode == "1":
+            showstr = showstr + u"   JPN"
+        else:
+            showstr = showstr + u"   ENG"
+
         window.clock_format = showstr
 
     def command_set_mode(mode_num):
@@ -125,7 +133,10 @@ def configure(window):
         mainmode = mode_num[0]
         show_keyhac_mode()
 
-
+    def command_set_ime(mode_num):
+        global flg_imemode
+        flg_imemode = mode_num[0]
+        show_keyhac_mode()
 
     # --------------------------------------------------------------------
     # 空欄コマンド
@@ -197,7 +208,6 @@ def configure(window):
 #        ( u"Vim",    command_vim),
 #        ( u"cmd",    window.command_ShellExecute( None, u"cmd.exe", u"%param%", u"" ) ),
         ( u"cmd",    command_cmd),
-        ( u"setmod",    command_set_mode),
         ( u"regedit",    window.command_ShellExecute( None, u"regedit.exe", u"", u"" ) ),
         ( u"Peggy",     window.command_ShellExecute( None, u"C:/ols/anchor/peggy/peggypro.exe", u"", u"" ) ),
         ( u"Becky",     window.command_ShellExecute( None, u"C:/ols/becky/B2.exe", u"", u"" ) ),
@@ -207,6 +217,9 @@ def configure(window):
         ( u"DropBox",    window.command_URL( u"https://www.dropbox.com/ja/", encoding=u"utf8" ) ),
         ( u"GitHub",    window.command_URL( u"https://github.com/hiderin/", encoding=u"utf8" ) ),
         ( u"Eijiro",    window.command_URL( u"http://eow.alc.co.jp/%param%/UTF-8/", encoding=u"utf8" ) ),
+        #keyhac用コマンド
+        ( u"setmod",    command_set_mode),
+        ( u"setime",    command_set_ime),
     ]
     # --------------------------------------------------------------------
     # スタートメニューの中のショートカットをコマンドとして登録する
