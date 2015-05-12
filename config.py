@@ -116,7 +116,7 @@ def configure(window):
         elif mainmode == "3":
             showstr = u"Visual Mode "
         elif mainmode == "4":
-            showstr = u"Command Mode"
+            showstr = u":" + command_str
         elif mainmode == "5":
             showstr = u"Search Mode "
 
@@ -136,6 +136,12 @@ def configure(window):
     def command_set_ime(mode_num):
         global flg_imemode
         flg_imemode = mode_num[0]
+        show_keyhac_mode()
+
+    def command_inp_cmd(mode_str):
+        global command_str,mainmode
+        mainmode = "4"
+        command_str = mode_str[0]
         show_keyhac_mode()
 
     # --------------------------------------------------------------------
@@ -220,6 +226,7 @@ def configure(window):
         #keyhac用コマンド
         ( u"setmod",    command_set_mode),
         ( u"setime",    command_set_ime),
+        ( u"inpcmd",    command_inp_cmd),
     ]
     # --------------------------------------------------------------------
     # スタートメニューの中のショートカットをコマンドとして登録する
