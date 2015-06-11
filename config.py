@@ -51,7 +51,7 @@ flg_fixinput=0
     # 0:マクロ OFF
     # 1:マクロ記録中
     # 2:マクロ実行中
-flg_mcr = 0
+flg_mcr = "0"
 
 # 設定処理
 def configure(window):
@@ -126,6 +126,12 @@ def configure(window):
         else:
             showstr = showstr + u"   ENG"
 
+        #マクロの状態の表示
+        if flg_mcr == "1":
+            showstr = showstr + u"   REC"
+        else:
+            showstr = showstr + u"      "
+
         window.clock_format = showstr
 
     def command_set_mode(mode_num):
@@ -142,6 +148,11 @@ def configure(window):
         global command_str,mainmode
         mainmode = "4"
         command_str = mode_str[0]
+        show_keyhac_mode()
+
+    def command_set_mcr(mode_num):
+        global flg_mcr
+        flg_mcr = mode_num[0]
         show_keyhac_mode()
 
     # --------------------------------------------------------------------
@@ -227,6 +238,7 @@ def configure(window):
         ( u"setmod",    command_set_mode),
         ( u"setime",    command_set_ime),
         ( u"inpcmd",    command_inp_cmd),
+        ( u"setmcr",    command_set_mcr),
     ]
     # --------------------------------------------------------------------
     # スタートメニューの中のショートカットをコマンドとして登録する
