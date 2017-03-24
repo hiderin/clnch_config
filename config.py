@@ -233,7 +233,7 @@ def configure(window):
         ( u"Google",    window.command_URL( u"http://www.google.com/search?ie=utf8&q=%param%", encoding=u"utf8" ) ),
         ( u"teratail",    window.command_URL( u"https://teratail.com/", encoding=u"utf8" ) ),
         ( u"firestorage",    window.command_URL( u"http://firestorage.jp/", encoding=u"utf8" ) ),
-        ( u"DataDeliver",    window.command_URL( u"https://www.datadeliver.net/", encoding=u"utf8" ) ),
+        ( u"DataDeliver",    window.command_URL( u"https://www.datadeliver.net/free/login_form.do", encoding=u"utf8" ) ),
         ( u"DropBox",    window.command_URL( u"https://www.dropbox.com/ja/", encoding=u"utf8" ) ),
         ( u"GitHub",    window.command_URL( u"https://github.com/hiderin/", encoding=u"utf8" ) ),
         ( u"bitbucket",    window.command_URL( u"https://bitbucket.org/hiderin215", encoding=u"utf8" ) ),
