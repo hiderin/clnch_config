@@ -222,6 +222,8 @@ def configure(window):
     window.launcher.command_list += [
         ( u"NetDrive",  command_NetDrive ),
         ( u"Vim",    window.command_ShellExecute( None, u"..\\portvim\\gvim.exe", u"", u"" ) ),
+        ( u"Vix",    window.command_ShellExecute( None, u"..\\programfiles\\vix221\\ViX.exe", u"", u"" ) ),
+        ( u"dentaku",window.command_ShellExecute( None, u"..\\programfiles\\Mdentaku\\Mdentaku.exe", u"", u"" ) ),
 #        ( u"Vim",    command_vim),
 #        ( u"cmd",    window.command_ShellExecute( None, u"cmd.exe", u"%param%", u"" ) ),
         ( u"cmd",    command_cmd),
@@ -230,6 +232,7 @@ def configure(window):
         ( u"Becky",     window.command_ShellExecute( None, u"C:/ols/becky/B2.exe", u"", u"" ) ),
         ( u"FireFox",   window.command_ShellExecute( None, u"C:/Program Files/Mozilla Firefox/firefox.exe", u"", u"C:/Program Files/Mozilla Firefox" ) ),
         ( u"Google",    window.command_URL( u"http://www.google.com/search?ie=utf8&q=%param%", encoding=u"utf8" ) ),
+        ( u"teratail",    window.command_URL( u"https://teratail.com/", encoding=u"utf8" ) ),
         ( u"firestorage",    window.command_URL( u"http://firestorage.jp/", encoding=u"utf8" ) ),
         ( u"DropBox",    window.command_URL( u"https://www.dropbox.com/ja/", encoding=u"utf8" ) ),
         ( u"GitHub",    window.command_URL( u"https://github.com/hiderin/", encoding=u"utf8" ) ),
