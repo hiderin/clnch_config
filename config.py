@@ -233,6 +233,7 @@ def configure(window):
         ( u"Mail",     window.command_ShellExecute( None, u"..\programfiles\ThunderbirdPortable\ThunderbirdPortable.exe", u"", u"" ) ),
         ( u"Becky",     window.command_ShellExecute( None, u"C:/ols/becky/B2.exe", u"", u"" ) ),
         ( u"FireFox",   window.command_ShellExecute( None, u"C:/Program Files/Mozilla Firefox/firefox.exe", u"", u"C:/Program Files/Mozilla Firefox" ) ),
+        ( u"Yoyaku",   window.command_ShellExecute( None, u"C:\\Program Files\\Microsoft Office 15\\root\\office15\\EXCEL.EXE", u"\\\\htlsrv\\みんなの共有フォルダー\\★予約★\\橋本\\予約料金計算(yoyaku).xlsx", u"" ) ),
         ( u"Google",    window.command_URL( u"http://www.google.com/search?ie=utf8&q=%param%", encoding=u"utf8" ) ),
         ( u"teratail",    window.command_URL( u"https://teratail.com/", encoding=u"utf8" ) ),
         ( u"firestorage",    window.command_URL( u"http://firestorage.jp/", encoding=u"utf8" ) ),
