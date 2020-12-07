@@ -229,7 +229,7 @@ def configure(window):
         ( u"Vix",    window.command_ShellExecute( None, u"..\\programfiles\\vix221\\ViX.exe", u"", u"" ) ),
         ( u"dentaku", window.command_ShellExecute( None, u"..\\programfiles\\Mdentaku\\Mdentaku.exe", u"", u"" ) ),
         ( u"regedit",    window.command_ShellExecute( None, u"regedit.exe", u"", u"" ) ),
-        ( u"Mail",     window.command_ShellExecute( None, u"..\\programfiles\\ThunderbirdPortable\\ThunderbirdPortable.exe", u"", u"" ) ),
+        ( u"Mail",     window.command_ShellExecute( None, u"..\\..\\PASSフォルダ\\ThunderbirdPortable\\ThunderbirdPortable.exe", u"", u"" ) ),
         ( u"AvidemuxPortable",     window.command_ShellExecute( None, u"..\\programfiles\\AvidemuxPortable\\AvidemuxPortable.exe", u"", u"" ) ),
         ( u"GimpPortable",     window.command_ShellExecute( None, u"..\\programfiles\\GimpPortable\\GIMPPortable.exe", u"", u"" ) ),
         ( u"InkscapePortable",     window.command_ShellExecute( None, u"..\\programfiles\\InkscapePortable\\InkscapePortable.exe", u"", u"" ) ),
