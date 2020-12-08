@@ -234,6 +234,7 @@ def configure(window):
         ( u"GimpPortable",     window.command_ShellExecute( None, u"..\\programfiles\\GimpPortable\\GIMPPortable.exe", u"", u"" ) ),
         ( u"InkscapePortable",     window.command_ShellExecute( None, u"..\\programfiles\\InkscapePortable\\InkscapePortable.exe", u"", u"" ) ),
         ( u"Yoyaku",   window.command_ShellExecute( None, u"C:\\Program Files\\Microsoft Office 15\\root\\office15\\EXCEL.EXE", u"\\\\htlsrv\\みんなの共有フォルダー\\★予約★\\橋本\\予約料金計算(yoyaku).xlsx", u"" ) ),
+        ( u"taion",    window.command_ShellExecute( None, u"C:\\Program Files\\Microsoft Office 15\\root\\office15\\EXCEL.EXE", u"Z:\\★予約★\\体温検温表\\N.橋本■■体温記録表.xlsx", u"" ) ),
 #"
         ( u"Google",    window.command_URL( u"http://www.google.com/search?ie=utf8&q=%param%", encoding=u"utf8" ) ),
         ( u"teratail",    window.command_URL( u"https://teratail.com/", encoding=u"utf8" ) ),
