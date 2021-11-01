@@ -230,6 +230,8 @@ def configure(window):
         ( u"dentaku", window.command_ShellExecute( None, u"..\\programfiles\\Mdentaku\\Mdentaku.exe", u"", u"" ) ),
         ( u"regedit",    window.command_ShellExecute( None, u"regedit.exe", u"", u"" ) ),
         ( u"Mail",     window.command_ShellExecute( None, u"..\\..\\PASSフォルダ\\ThunderbirdPortable\\ThunderbirdPortable.exe", u"", u"" ) ),
+        ( u"ReduceMemory",     window.command_ShellExecute( None, u"..\\programfiles\\ReduceMemory\\ReduceMemory.exe", u"", u"" ) ),
+        ( u"ReduceMemory64",     window.command_ShellExecute( None, u"..\\programfiles\\ReduceMemory\\ReduceMemory_x64.exe", u"", u"" ) ),
         ( u"AvidemuxPortable",     window.command_ShellExecute( None, u"..\\programfiles\\AvidemuxPortable\\AvidemuxPortable.exe", u"", u"" ) ),
         ( u"GimpPortable",     window.command_ShellExecute( None, u"..\\programfiles\\GimpPortable\\GIMPPortable.exe", u"", u"" ) ),
         ( u"InkscapePortable",     window.command_ShellExecute( None, u"..\\programfiles\\InkscapePortable\\InkscapePortable.exe", u"", u"" ) ),
