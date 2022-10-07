@@ -264,20 +264,37 @@ def configure(window):
         startmenu_items = []
 
         MAX_PATH = 260
-        CSIDL_PROGRAMS = 2
-        CSIDL_COMMON_PROGRAMS = 23
+        #CSIDL_PROGRAMS = 2
+        #CSIDL_COMMON_PROGRAMS = 23
+
+        CSIDL_PROGRAMS                = 0x0002 # 「プログラム」（ファイルシステムディレクトリ）
+        CSIDL_DESKTOPDIRECTORY        = 0x0010 # 「デスクトップ」上のファイルオブジェクトを格納するフォルダ（ファイルシステムディレクトリ）
+        CSIDL_COMMON_PROGRAMS         = 0x0017 # AllUsers の「プログラム」（ファイルシステムディレクトリ）
+        CSIDL_COMMON_DESKTOPDIRECTORY = 0x0019 # AllUsers の「デスクトップ」（ファイルシステムディレクトリ）
 
         buf = ctypes.create_unicode_buffer(MAX_PATH)
 
         ctypes.windll.shell32.SHGetSpecialFolderPathW( None, buf, CSIDL_PROGRAMS, 0 )
         programs_dir = buf.value
+        print u"%s" % (programs_dir)
 
         ctypes.windll.shell32.SHGetSpecialFolderPathW( None, buf, CSIDL_COMMON_PROGRAMS, 0 )
         common_programs_dir = buf.value
-        
+        print u"%s" % (common_programs_dir)
+
+        ctypes.windll.shell32.SHGetSpecialFolderPathW( None, buf, CSIDL_DESKTOPDIRECTORY, 0 )
+        desktop_dir = buf.value
+        print u"%s" % (common_programs_dir)
+
+        ctypes.windll.shell32.SHGetSpecialFolderPathW( None, buf, CSIDL_COMMON_DESKTOPDIRECTORY, 0 )
+        common_desktop_dir = buf.value
+        print u"%s" % (common_programs_dir)
+
         startmenu_dirs = [
             programs_dir,
-            common_programs_dir
+            common_programs_dir,
+            desktop_dir,
+            common_desktop_dir
         ]
         
         for startmenu_dir in startmenu_dirs:
